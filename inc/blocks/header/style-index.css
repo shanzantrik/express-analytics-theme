@@ -1,0 +1,112 @@
+.wp-block-expressanalytics-header {
+  padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+  position: relative;
+  z-index: 100;
+  background-color: var(--wp--preset--color--background);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wp-block-expressanalytics-header.is-sticky {
+  position: sticky;
+  top: 0;
+  transition: transform 0.3s ease;
+}
+
+.wp-block-expressanalytics-header.is-sticky.is-hidden {
+  transform: translateY(-100%);
+}
+
+.wp-block-expressanalytics-header__inner {
+  max-width: var(--wp--style--global--content-size);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wp-block-expressanalytics-header__logo {
+  flex-shrink: 0;
+}
+
+.wp-block-expressanalytics-header__logo a {
+  display: block;
+  text-decoration: none;
+}
+
+.wp-block-expressanalytics-header__logo img {
+  display: block;
+  height: auto;
+}
+
+.wp-block-expressanalytics-header__nav {
+  flex: 1;
+  margin: 0 var(--wp--preset--spacing--40);
+}
+
+.wp-block-expressanalytics-header__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--wp--preset--spacing--40);
+}
+
+.wp-block-expressanalytics-header__menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.wp-block-expressanalytics-header__menu a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.wp-block-expressanalytics-header__menu a:hover {
+  color: var(--wp--preset--color--primary);
+}
+
+.wp-block-expressanalytics-header__menu .current-menu-item>a {
+  color: var(--wp--preset--color--primary);
+}
+
+.wp-block-expressanalytics-header__cta {
+  flex-shrink: 0;
+}
+
+.wp-block-expressanalytics-header__cta-button {
+  display: inline-block;
+  padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--background);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.wp-block-expressanalytics-header__cta-button:hover {
+  background-color: var(--wp--preset--color--primary-dark);
+  color: var(--wp--preset--color--background);
+}
+
+/* Mobile menu styles */
+@media (max-width: 781px) {
+  .wp-block-expressanalytics-header__inner {
+    flex-wrap: wrap;
+  }
+
+  .wp-block-expressanalytics-header__nav {
+    order: 3;
+    margin: var(--wp--preset--spacing--20) 0 0;
+    width: 100%;
+  }
+
+  .wp-block-expressanalytics-header__menu {
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--20);
+    text-align: center;
+  }
+}

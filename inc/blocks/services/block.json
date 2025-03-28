@@ -1,0 +1,73 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "expressanalytics/services",
+    "version": "1.0.0",
+    "title": "Services",
+    "category": "expressanalytics",
+    "icon": "analytics",
+    "description": "Display analytics services with descriptions and features.",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Our Services"
+        },
+        "description": {
+            "type": "string",
+            "default": "Comprehensive analytics solutions to drive your business forward"
+        },
+        "services": {
+            "type": "array",
+            "default": [
+                {
+                    "title": "Data Analytics",
+                    "description": "Transform raw data into actionable insights with our advanced analytics solutions.",
+                    "icon": "chart-line",
+                    "features": [
+                        "Custom Analytics Dashboards",
+                        "Real-time Data Processing",
+                        "Predictive Analytics",
+                        "Data Visualization",
+                        "Performance Metrics"
+                    ],
+                    "image": null,
+                    "link": "#"
+                }
+            ]
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        },
+        "showIcons": {
+            "type": "boolean",
+            "default": true
+        },
+        "backgroundColor": {
+            "type": "string"
+        },
+        "textColor": {
+            "type": "string"
+        },
+        "gradient": {
+            "type": "string"
+        }
+    },
+    "textdomain": "expressanalytics",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}

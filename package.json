@@ -1,0 +1,19 @@
+{
+  "name": "express-analytics-theme",
+  "version": "1.0.0",
+  "description": "Express Analytics WordPress Theme",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "author": "Express Analytics",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@wordpress/scripts": "^27.2.0",
+    "@wordpress/stylelint-config": "^21.33.0"
+  }
+}

@@ -1,0 +1,165 @@
+.wp-block-expressanalytics-hero {
+  position: relative;
+  padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--50);
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--wp--preset--color--background);
+  background-color: var(--wp--preset--color--primary);
+}
+
+.wp-block-expressanalytics-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--wp--style--global--content-size);
+  margin: 0 auto;
+  padding: var(--wp--preset--spacing--40);
+}
+
+.wp-block-expressanalytics-hero__heading {
+  font-size: var(--wp--preset--font-size--huge);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.wp-block-expressanalytics-hero__description {
+  font-size: var(--wp--preset--font-size--large);
+  line-height: 1.6;
+  margin-bottom: var(--wp--preset--spacing--40);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block-expressanalytics-hero__buttons {
+  display: flex;
+  gap: var(--wp--preset--spacing--20);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.wp-block-expressanalytics-hero__buttons .wp-block-button__link {
+  padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: text;
+}
+
+.wp-block-expressanalytics-hero__buttons .wp-block-button__link:not(.is-style-outline) {
+  background-color: var(--wp--preset--color--background);
+  color: var(--wp--preset--color--primary);
+}
+
+.wp-block-expressanalytics-hero__buttons .wp-block-button__link.is-style-outline {
+  background-color: transparent;
+  color: var(--wp--preset--color--background);
+  border: 2px solid var(--wp--preset--color--background);
+}
+
+/* Editor-specific styles */
+.wp-block-expressanalytics-hero .components-button {
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.wp-block-expressanalytics-hero .components-range-control {
+  margin-top: var(--wp--preset--spacing--30);
+}
+
+.wp-block-expressanalytics-hero .components-base-control__field {
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.wp-block-expressanalytics-hero .components-panel__body-title {
+  margin-top: 0;
+}
+
+.wp-block-expressanalytics-hero .block-editor-url-input__input {
+  width: 100%;
+}
+
+.wp-block-expressanalytics-hero .components-placeholder {
+  min-height: 200px;
+}
+
+.wp-block-expressanalytics-hero .components-placeholder__label {
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.wp-block-expressanalytics-hero .components-placeholder__instructions {
+  margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.wp-block-expressanalytics-hero .components-placeholder__fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Rich Text placeholder styles */
+.wp-block-expressanalytics-hero [data-empty="true"]::before {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.wp-block-expressanalytics-hero .block-editor-rich-text__editable:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Media upload button styles */
+.wp-block-expressanalytics-hero .components-button.editor-post-featured-image__toggle {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed var(--wp--preset--color--background);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.wp-block-expressanalytics-hero .components-button.editor-post-featured-image__toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* URL input styles */
+.wp-block-expressanalytics-hero .block-editor-url-input {
+  width: 100%;
+}
+
+.wp-block-expressanalytics-hero .block-editor-url-input input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--wp--preset--color--contrast);
+}
+
+/* Mobile styles */
+@media (max-width: 781px) {
+  .wp-block-expressanalytics-hero {
+    min-height: 500px;
+    padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--30);
+  }
+
+  .wp-block-expressanalytics-hero__heading {
+    font-size: var(--wp--preset--font-size--x-large);
+  }
+
+  .wp-block-expressanalytics-hero__description {
+    font-size: var(--wp--preset--font-size--medium);
+  }
+
+  .wp-block-expressanalytics-hero__buttons {
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--20);
+  }
+
+  .wp-block-expressanalytics-hero__buttons .wp-block-button__link {
+    width: 100%;
+    text-align: center;
+  }
+}

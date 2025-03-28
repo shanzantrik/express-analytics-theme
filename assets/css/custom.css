@@ -1,0 +1,629 @@
+/**
+ * Express Analytics Theme Custom Styles
+ */
+
+/*
+ * Global Styles
+ */
+:root {
+  --primary-color: #dc1b36;
+  --secondary-color: #000000;
+  --dark-blue: #1a2b6a;
+  --light-gray: #f8f8f8;
+  --medium-gray: #e5e5e5;
+  --dark-gray: #333333;
+  --white: #ffffff;
+  --black: #000000;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --border-radius-small: 5px;
+  --border-radius-medium: 10px;
+  --border-radius-large: 15px;
+  --transition: all 0.3s ease;
+}
+
+/*
+ * Header Styles
+ */
+.site-header {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.header-navigation ul {
+  gap: 30px;
+}
+
+.header-navigation ul li a {
+  font-weight: 500;
+  position: relative;
+}
+
+.header-navigation ul li a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.header-navigation ul li a:hover:after {
+  width: 100%;
+}
+
+/*
+ * Button Styles
+ */
+.wp-block-button__link {
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.wp-block-button.is-style-fill .wp-block-button__link:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/*
+ * Cookie Notice
+ */
+#cookie-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#cookie-notice p {
+  margin: 0;
+  flex: 1;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.cookie-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.accept-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.accept-btn:hover {
+  background-color: #c01830;
+}
+
+.decline-btn {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+}
+
+.decline-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/*
+ * Hero Section
+ */
+.wp-block-cover.alignfull {
+  background-position: center center;
+  background-size: cover;
+}
+
+/*
+ * Client Logo Slider
+ */
+.client-logos-section {
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.client-logo-slider {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  overflow: hidden;
+}
+
+.client-logo-slide {
+  flex: 0 0 auto;
+  max-width: 180px;
+  min-width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.client-logo-slide:hover {
+  opacity: 1;
+}
+
+.client-logo-slide img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+ * Services Section
+ */
+.services-section {
+  padding: 80px 0;
+}
+
+.service-tabs {
+  border: 1px solid var(--medium-gray);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.service-tabs.active-tab {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+.service-content-wrapper {
+  padding: 40px 0;
+}
+
+.service-feature-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.service-feature-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+}
+
+.service-feature-list li:before {
+  content: '•';
+  color: var(--primary-color);
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+.service-feature-list li a {
+  font-weight: 600;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/*
+ * Video Section
+ */
+.video-section {
+  padding: 80px 0;
+}
+
+.wp-block-embed figcaption {
+  text-align: center;
+  margin-top: 15px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/*
+ * Testimonials Section
+ */
+.testimonials-section {
+  padding: 80px 0;
+}
+
+.testimonial-card {
+  height: 100%;
+  transition: var(--transition);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/*
+ * Call to Action Section
+ */
+.cta-section {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 60px 0;
+}
+
+/*
+ * Solutions Section
+ */
+.solutions-section {
+  padding: 80px 0;
+}
+
+.solution-tabs {
+  border: 1px solid var(--medium-gray);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.solution-tabs.active-tab {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+.solution-content-wrapper {
+  padding: 40px;
+  background-color: var(--light-gray);
+  border-radius: var(--border-radius-medium);
+}
+
+/*
+ * Footer Styles
+ */
+.site-footer {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.site-footer a {
+  color: var(--white);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.site-footer a:hover {
+  color: var(--primary-color);
+}
+
+.site-footer h4 {
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+/*
+ * Responsive Styles
+ */
+@media screen and (max-width: 1024px) {
+  .client-logo-slide {
+    max-width: 140px;
+    min-width: 120px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wp-block-columns.alignwide {
+    flex-wrap: wrap;
+  }
+
+  .wp-block-column {
+    flex-basis: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .client-logo-slide {
+    max-width: 120px;
+    min-width: 100px;
+  }
+
+  #cookie-notice {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cookie-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wp-block-navigation__responsive-container-open:not(.always-shown) {
+    display: flex;
+  }
+
+  .wp-block-navigation__responsive-container:not(.has-modal-open) {
+    display: none;
+  }
+
+  .client-logo-slide {
+    max-width: 100px;
+    min-width: 80px;
+  }
+}
+
+.mega-ea {
+  display: flex;
+}
+
+.mega-ea a {
+  text-decoration: none;
+  color: #000;
+}
+
+.mega-ea .gw-mm-item__dropdown {
+  box-shadow: 0 5px 5px 0 rgb(246 0 0 / 41%) !important;
+}
+
+/* Base header styles */
+.mainheader {
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, margin 0.3s ease;
+  margin: 0;
+  /* Added 1rem top margin */
+}
+
+/* Scrolled state */
+.mainheader.scrolled {
+  background-color: #fff;
+  /* White background */
+  margin: 0;
+  /* Maintain top margin, reset bottom */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu items in scrolled state - Increased specificity */
+.mainheader.scrolled .mega-ea,
+.mainheader.scrolled .mega-ea * {
+  color: #000 !important;
+  /* Black color with highest priority */
+}
+
+/* Specific menu item styles */
+.mainheader.scrolled .mega-ea .mega-ea-menu-item {
+  color: #000 !important;
+  /* Ensure black color */
+  transition: color 0.3s ease;
+}
+
+/* Hover state for menu items */
+.mainheader.scrolled .mega-ea .mega-ea-menu-item:hover {
+  color: #333 !important;
+  /* Dark gray on hover */
+}
+
+/* Ensure initial state has a different color (optional) */
+.mainheader .mega-ea,
+.mainheader .mega-ea .mega-ea-menu-item {
+  color: #fff;
+  /* White text when not scrolled, adjust as needed */
+}
+
+.hue-pulse {
+  width: 340px;
+  animation: huePulse 3s infinite ease-in-out;
+  /* Base filter for brightness and initial glow */
+  filter: brightness(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+
+/* Keyframes with specific colors and glow */
+@keyframes huePulse {
+  0% {
+    /* Red with red glow */
+    filter: hue-rotate(0deg) brightness(1.2) saturate(1.5) drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+  }
+
+  33% {
+    /* Magenta with magenta glow */
+    filter: hue-rotate(300deg) brightness(1.4) saturate(2) drop-shadow(0 0 10px rgba(255, 0, 204, 0.8));
+  }
+
+  66% {
+    /* Yellow with yellow glow */
+    filter: hue-rotate(50deg) brightness(1.3) saturate(2) drop-shadow(0 0 8px rgba(255, 230, 0, 0.8));
+  }
+
+  100% {
+    /* Back to Red with red glow */
+    filter: hue-rotate(0deg) brightness(1.2) saturate(1.5) drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+  }
+}
+
+/* Hover effect */
+.hue-pulse:hover {
+  animation-play-state: paused;
+  filter: brightness(1.5) drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+}
+
+.sub-text-button {
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+}
+
+.wp-block-button.is-style-outline-primary .wp-block-button__link {
+  border: none;
+  text-align: left;
+}
+
+:root {
+  --tab-main: #bd06f3;
+  --tab-gray: #ccc;
+}
+
+.red-tab-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.red-tab-left,
+.red-tab-right {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  background-color: #fff;
+}
+
+
+.tab-title {
+  padding: 0;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 20px;
+  color: #333;
+  background: #fff;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.red-tab-left .tab-title.active {
+  border-left: 3px solid #f30606;
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.red-tab-right .tab-title.active {
+  border-right: 3px solid #f30606;
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.tab-title:hover {
+  background-color: #f2f2f2;
+}
+
+.tab-center {
+  flex-grow: 1;
+  padding: 25px;
+  background-color: #fff;
+  box-shadow: 0 12px 25px -10px #00000040;
+  min-height: 200px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+#animationCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Add this to ensure other elements are clickable */
+.site-header,
+.mega-ea,
+.wp-block-button,
+.cookie-notice,
+.tab-title {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure content layers properly */
+.site-header,
+.header-inner,
+.site-content,
+.site-footer,
+.mega-ea,
+.wp-block-button,
+.cookie-notice,
+.tab-title {
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo handling */
+.mainheader .logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.mainheader .logo-default {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.mainheader .logo-scrolled {
+  position: absolute;
+  top: 16px;
+  left: 160px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Default state (transparent background) */
+.mainheader:not(.scrolled) .logo-default {
+  opacity: 1;
+}
+
+.mainheader:not(.scrolled) .logo-scrolled {
+  opacity: 0;
+}
+
+.mainheader:not(.scrolled) .hue-pulse {
+  animation: huePulse 3s infinite ease-in-out;
+}
+
+/* Scrolled state */
+.mainheader.scrolled .logo-default {
+  opacity: 0;
+}
+
+.mainheader.scrolled .logo-scrolled {
+  opacity: 1;
+}
+
+.mainheader.scrolled .hue-pulse {
+  animation: none;
+  filter: none;
+  /* Reset any filters */
+  width: 340px;
+  /* Maintain the width */
+}
