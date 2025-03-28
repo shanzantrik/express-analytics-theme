@@ -1,24 +1,15 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "expressanalytics/services",
+    "apiVersion": 2,
+    "name": "express-analytics/services",
     "version": "1.0.0",
-    "title": "Services",
-    "category": "expressanalytics",
-    "icon": "analytics",
-    "description": "Display analytics services with descriptions and features.",
+    "title": "Services Grid",
+    "category": "express-analytics",
+    "icon": "grid-view",
+    "description": "Display services in a grid layout with icons and descriptions.",
     "supports": {
         "html": false,
-        "align": ["wide", "full"],
-        "color": {
-            "background": true,
-            "text": true,
-            "gradients": true
-        },
-        "spacing": {
-            "margin": true,
-            "padding": true
-        }
+        "align": ["wide", "full"]
     },
     "attributes": {
         "heading": {
@@ -27,34 +18,15 @@
         },
         "description": {
             "type": "string",
-            "default": "Comprehensive analytics solutions to drive your business forward"
-        },
-        "services": {
-            "type": "array",
-            "default": [
-                {
-                    "title": "Data Analytics",
-                    "description": "Transform raw data into actionable insights with our advanced analytics solutions.",
-                    "icon": "chart-line",
-                    "features": [
-                        "Custom Analytics Dashboards",
-                        "Real-time Data Processing",
-                        "Predictive Analytics",
-                        "Data Visualization",
-                        "Performance Metrics"
-                    ],
-                    "image": null,
-                    "link": "#"
-                }
-            ]
+            "default": "Explore our comprehensive analytics services"
         },
         "columns": {
             "type": "number",
             "default": 3
         },
-        "showIcons": {
-            "type": "boolean",
-            "default": true
+        "services": {
+            "type": "array",
+            "default": []
         },
         "backgroundColor": {
             "type": "string"
@@ -66,8 +38,8 @@
             "type": "string"
         }
     },
-    "textdomain": "expressanalytics",
-    "editorScript": "file:./index.js",
+    "textdomain": "express-analytics",
+    "editorScript": "file:../../../../build/services/block.js",
     "editorStyle": "file:./index.css",
     "style": "file:./style-index.css"
 }

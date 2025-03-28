@@ -234,7 +234,7 @@ function expressanalytics_register_post_types()
       'public'      => true,
       'has_archive' => true,
       'menu_icon'   => 'dashicons-portfolio',
-      'supports'    => array('title', 'thumbnail', 'excerpt'),
+      'supports'    => array('title', 'editor', 'thumbnail', 'excerpt'),
       'rewrite'     => array('slug' => 'case-studies'),
       'show_in_rest' => true,
     )
@@ -259,7 +259,7 @@ function expressanalytics_register_post_types()
       'public'      => true,
       'has_archive' => true,
       'menu_icon'   => 'dashicons-analytics',
-      'supports'    => array('title', 'thumbnail', 'excerpt'),
+      'supports'    => array('title', 'editor', 'thumbnail', 'excerpt'),
       'rewrite'     => array('slug' => 'services'),
       'show_in_rest' => true,
     )
@@ -284,7 +284,7 @@ function expressanalytics_register_post_types()
       'public'      => true,
       'has_archive' => true,
       'menu_icon'   => 'dashicons-chart-area',
-      'supports'    => array('title', 'thumbnail', 'excerpt'),
+      'supports'    => array('title', 'editor', 'thumbnail', 'excerpt'),
       'rewrite'     => array('slug' => 'solutions'),
       'show_in_rest' => true,
     )

@@ -1,10 +1,10 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 2,
-    "name": "expressanalytics/hero",
+    "name": "express-analytics/hero",
     "version": "0.1.0",
     "title": "Hero Section",
-    "category": "expressanalytics",
+    "category": "express-analytics",
     "icon": "cover-image",
     "description": "A hero section with heading, text, and call-to-action buttons.",
     "supports": {
@@ -57,8 +57,8 @@
             "default": "full"
         }
     },
-    "textdomain": "expressanalytics",
-    "editorScript": "file:./index.js",
+    "textdomain": "express-analytics",
+    "editorScript": "file:../../../../build/hero/block.js",
     "editorStyle": "file:./index.css",
     "style": "file:./style-index.css"
 }

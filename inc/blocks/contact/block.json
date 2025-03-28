@@ -1,24 +1,15 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "expressanalytics/contact",
+    "apiVersion": 2,
+    "name": "express-analytics/contact",
     "version": "1.0.0",
-    "title": "Contact Section",
-    "category": "expressanalytics",
+    "title": "Contact Form",
+    "category": "express-analytics",
     "icon": "email",
-    "description": "Display contact information and form in an attractive layout.",
+    "description": "Display a contact form with custom fields and styling.",
     "supports": {
         "html": false,
-        "align": ["wide", "full"],
-        "color": {
-            "background": true,
-            "text": true,
-            "gradients": true
-        },
-        "spacing": {
-            "margin": true,
-            "padding": true
-        }
+        "align": ["wide", "full"]
     },
     "attributes": {
         "heading": {
@@ -27,25 +18,9 @@
         },
         "description": {
             "type": "string",
-            "default": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+            "default": "Have questions? We'd love to hear from you."
         },
-        "contactInfo": {
-            "type": "object",
-            "default": {
-                "address": "123 Analytics Street, Tech City, TC 12345",
-                "phone": "+1 (234) 567-89",
-                "email": "info@expressanalytics.com"
-            }
-        },
-        "formShortcode": {
-            "type": "string",
-            "default": "[contact-form-7 id=\"contact-form\" title=\"Contact Form\"]"
-        },
-        "showMap": {
-            "type": "boolean",
-            "default": true
-        },
-        "mapEmbedUrl": {
+        "formId": {
             "type": "string",
             "default": ""
         },
@@ -59,8 +34,8 @@
             "type": "string"
         }
     },
-    "textdomain": "expressanalytics",
-    "editorScript": "file:./index.js",
+    "textdomain": "express-analytics",
+    "editorScript": "file:../../../../build/contact/block.js",
     "editorStyle": "file:./index.css",
     "style": "file:./style-index.css"
 }

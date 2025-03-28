@@ -1,10 +1,10 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 2,
-    "name": "expressanalytics/features",
+    "name": "express-analytics/features",
     "version": "0.1.0",
     "title": "Features Grid",
-    "category": "expressanalytics",
+    "category": "express-analytics",
     "icon": "grid-view",
     "description": "Display a grid of features with icons and descriptions.",
     "supports": {
@@ -61,8 +61,8 @@
             "default": "full"
         }
     },
-    "textdomain": "expressanalytics",
-    "editorScript": "file:./index.js",
+    "textdomain": "express-analytics",
+    "editorScript": "file:../../../../build/features/block.js",
     "editorStyle": "file:./index.css",
     "style": "file:./style-index.css"
 }

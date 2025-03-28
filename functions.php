@@ -375,10 +375,6 @@ function ea_enqueue_assets()
 }
 add_action('wp_enqueue_scripts', 'ea_enqueue_assets');
 
-/**
- * Include block initialization
- */
-require get_template_directory() . '/inc/blocks/init.php';
 
 /**
  * Enqueue theme fonts

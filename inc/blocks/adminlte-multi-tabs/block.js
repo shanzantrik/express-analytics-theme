@@ -7,32 +7,12 @@ const { useState } = wp.element;
 const { __ } = wp.i18n;
 
 registerBlockType('express-analytics/adminlte-multi-tabs', {
-  apiVersion: 2,
-  title: __('AdminLTE Multi Tabs', 'express-analytics'),
-  description: __('A custom block with vertical tabs styled like AdminLTE sidebar', 'express-analytics'),
-  icon: 'grid-view',
-  category: 'express-analytics',
-  keywords: [__('tabs', 'express-analytics'), __('adminlte', 'express-analytics'), __('vertical tabs', 'express-analytics')],
-  supports: {
-    html: false,
-    anchor: true,
-    align: ['wide', 'full']
-  },
-  attributes: {
-    tabs: {
-      type: 'array',
-      default: [
-        { title: 'Tab 1', icon: 'fas fa-home', content: '' },
-        { title: 'Tab 2', icon: 'fas fa-cog', content: '' },
-      ],
-    },
-  },
-
-  edit: function Edit({ attributes, setAttributes }) {
+  edit: ({ attributes, setAttributes }) => {
     const { tabs } = attributes;
     const [activeTab, setActiveTab] = useState(0);
+
     const blockProps = useBlockProps({
-      className: 'adminlte-multi-tabs-block'
+      className: 'wp-block-express-analytics-adminlte-multi-tabs',
     });
 
     const iconOptions = [
@@ -128,10 +108,11 @@ registerBlockType('express-analytics/adminlte-multi-tabs', {
     );
   },
 
-  save: function Save({ attributes }) {
+  save: ({ attributes }) => {
     const { tabs } = attributes;
+
     const blockProps = useBlockProps.save({
-      className: 'adminlte-multi-tabs-block'
+      className: 'wp-block-express-analytics-adminlte-multi-tabs',
     });
 
     return (

@@ -1,10 +1,10 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
-    "name": "expressanalytics/header",
+    "name": "express-analytics/header",
     "version": "1.0.0",
     "title": "Site Header",
-    "category": "expressanalytics",
+    "category": "express-analytics",
     "icon": "menu",
     "description": "Display the site header with logo, navigation, and call-to-action button.",
     "supports": {
@@ -63,8 +63,8 @@
             "type": "string"
         }
     },
-    "textdomain": "expressanalytics",
-    "editorScript": "file:./index.js",
+    "textdomain": "express-analytics",
+    "editorScript": "file:../../../../build/header/block.js",
     "editorStyle": "file:./index.css",
     "style": "file:./style-index.css"
 }

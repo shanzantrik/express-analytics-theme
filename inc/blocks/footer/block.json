@@ -1,10 +1,10 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
-    "name": "expressanalytics/footer",
+    "name": "express-analytics/footer",
     "version": "1.0.0",
     "title": "Site Footer",
-    "category": "expressanalytics",
+    "category": "express-analytics",
     "icon": "align-wide",
     "description": "Display the site footer with logo, navigation menus, and copyright information.",
     "supports": {
@@ -71,13 +71,10 @@
         },
         "textColor": {
             "type": "string"
-        },
-        "gradient": {
-            "type": "string"
         }
     },
-    "textdomain": "expressanalytics",
-    "editorScript": "file:./index.js",
+    "textdomain": "express-analytics",
+    "editorScript": "file:../../../../build/footer/block.js",
     "editorStyle": "file:./index.css",
     "style": "file:./style-index.css"
 }

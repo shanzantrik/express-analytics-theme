@@ -1,24 +1,15 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "expressanalytics/testimonials",
+    "apiVersion": 2,
+    "name": "express-analytics/testimonials",
     "version": "1.0.0",
     "title": "Testimonials",
-    "category": "expressanalytics",
+    "category": "express-analytics",
     "icon": "format-quote",
-    "description": "Display customer testimonials in a carousel or grid layout.",
+    "description": "Display customer testimonials in a grid or slider layout.",
     "supports": {
         "html": false,
-        "align": ["wide", "full"],
-        "color": {
-            "background": true,
-            "text": true,
-            "gradients": true
-        },
-        "spacing": {
-            "margin": true,
-            "padding": true
-        }
+        "align": ["wide", "full"]
     },
     "attributes": {
         "heading": {
@@ -27,11 +18,11 @@
         },
         "description": {
             "type": "string",
-            "default": "Discover why businesses trust our analytics solutions"
+            "default": "Read what our satisfied clients have to say about our analytics solutions"
         },
         "layout": {
             "type": "string",
-            "default": "carousel"
+            "default": "grid"
         },
         "columns": {
             "type": "number",
@@ -39,15 +30,7 @@
         },
         "testimonials": {
             "type": "array",
-            "default": [
-                {
-                    "quote": "Express Analytics has transformed how we understand our data. Their solutions are intuitive and powerful.",
-                    "author": "John Smith",
-                    "position": "CEO",
-                    "company": "Tech Solutions Inc.",
-                    "image": null
-                }
-            ]
+            "default": []
         },
         "backgroundColor": {
             "type": "string"
@@ -59,9 +42,8 @@
             "type": "string"
         }
     },
-    "textdomain": "expressanalytics",
-    "editorScript": "file:./index.js",
+    "textdomain": "express-analytics",
+    "editorScript": "file:../../../../build/testimonials/block.js",
     "editorStyle": "file:./index.css",
-    "style": "file:./style-index.css",
-    "viewScript": "file:./view.js"
+    "style": "file:./style-index.css"
 }
