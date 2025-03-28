@@ -40,7 +40,8 @@ function expressanalytics_register_blocks()
 
 	// Define blocks with their namespaces
 	$blocks = [
-		'express-analytics/hello-world'
+		'express-analytics/hello-world',
+		'express-analytics/hero-section-solution'
 	];
 
 	// Register each block
@@ -93,13 +94,27 @@ function expressanalytics_enqueue_block_editor_assets()
 	);
 
 	// Enqueue block's script
-	$script_path = "/build/hello-world/block.js";
+	$script_path = "/build/hello-world/index.js";
 	$script_url = get_theme_file_uri($script_path);
 	$script_file = get_theme_file_path($script_path);
 
 	if (file_exists($script_file)) {
 		wp_enqueue_script(
 			"express-analytics-hello-world-block",
+			$script_url,
+			['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-block-editor'],
+			filemtime($script_file)
+		);
+	}
+
+	// Enqueue block's script
+	$script_path = "/build/hero-section-solution/index.js";
+	$script_url = get_theme_file_uri($script_path);
+	$script_file = get_theme_file_path($script_path);
+
+	if (file_exists($script_file)) {
+		wp_enqueue_script(
+			"express-analytics-hero-section-solution-block",
 			$script_url,
 			['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-block-editor'],
 			filemtime($script_file)

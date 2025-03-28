@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "version": "1.0",
+  "name": "express-analytics/hero-section-solution",
+  "title": "Hero Section",
+  "category": "express-analytics",
+  "icon": "cover-image",
+  "description": "A custom hero section block for Solutions Custom Post Type.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "description": {
+      "type": "string",
+      "source": "html",
+      "selector": ".hero-description"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  },
+  "textdomain": "express-analytics",
+  "editorScript": "file:../../../../build/hero-section-solution/index.js",
+  "editorStyle": "file:../../../../build/hero-section-solution/index.css",
+  "style": "file:../../../../build/hero-section-solution/style-index.css"
+}

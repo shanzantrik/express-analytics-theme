@@ -1,0 +1,44 @@
+/* Hero Section Block Styles */
+
+.wp-block-express-analytics-hero-section {
+    position: relative;
+    padding: 60px 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+
+        .hero-image {
+            margin-bottom: 20px;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #0073aa;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #005a87;
+            }
+        }
+    }
+}
