@@ -25,6 +25,8 @@ function expressanalytics_block_categories($categories)
 		$categories
 	);
 }
+
+// Register block categories for both editor and front-end
 add_filter('block_categories_all', 'expressanalytics_block_categories', 10, 1);
 
 /**
@@ -38,15 +40,7 @@ function expressanalytics_register_blocks()
 
 	// Define blocks with their namespaces
 	$blocks = [
-		'express-analytics/header',
-		'express-analytics/footer',
-		'express-analytics/adminlte-multi-tabs',
-		'express-analytics/contact',
-		'express-analytics/case-studies',
-		'express-analytics/services',
-		'express-analytics/testimonials',
-		'express-analytics/features',
-		'express-analytics/hero'
+		'express-analytics/hello-world'
 	];
 
 	// Register each block
@@ -59,7 +53,7 @@ function expressanalytics_register_blocks()
 		}
 	}
 }
-add_action('init', 'expressanalytics_register_blocks');
+add_action('init', 'expressanalytics_register_blocks', 20);
 
 /**
  * Registers JS and CSS for custom blocks.
@@ -93,9 +87,23 @@ function expressanalytics_enqueue_block_editor_assets()
 	wp_enqueue_script(
 		'express-analytics-blocks-editor',
 		get_theme_file_uri('/assets/js/blocks-editor.js'),
-		['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor'],
+		['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-block-editor'],
 		_S_VERSION,
 		true
 	);
+
+	// Enqueue block's script
+	$script_path = "/build/hello-world/block.js";
+	$script_url = get_theme_file_uri($script_path);
+	$script_file = get_theme_file_path($script_path);
+
+	if (file_exists($script_file)) {
+		wp_enqueue_script(
+			"express-analytics-hello-world-block",
+			$script_url,
+			['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-block-editor'],
+			filemtime($script_file)
+		);
+	}
 }
 add_action('enqueue_block_editor_assets', 'expressanalytics_enqueue_block_editor_assets');

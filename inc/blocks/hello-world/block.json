@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "express-analytics/hello-world",
+    "version": "1.0.0",
+    "title": "Hello World",
+    "category": "express-analytics",
+    "icon": "smiley",
+    "description": "A simple hello world block for testing",
+    "supports": {
+        "html": false
+    },
+    "textdomain": "express-analytics",
+    "editorScript": "file:../../../../build/hello-world/block.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}

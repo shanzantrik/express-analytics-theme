@@ -252,26 +252,56 @@ add_action('after_setup_theme', 'expressanalytics_add_image_sizes');
 /**
  * Enqueue hero section assets
  */
-function express_analytics_enqueue_hero_assets()
+function expressanalytics_hero_section_scripts()
 {
-	// Enqueue hero section styles
-	wp_enqueue_style(
-		'express-analytics-hero',
-		get_template_directory_uri() . '/assets/css/hero-section.css',
-		array(),
-		filemtime(get_template_directory() . '/assets/css/hero-section.css')
-	);
+	// Check if files exist in the build directory first
+	$build_css_file = get_theme_file_path('/build/hero-section.css');
+	$build_js_file = get_theme_file_path('/build/hero-section.js');
 
-	// Enqueue hero section animations
-	wp_enqueue_script(
-		'express-analytics-hero-animations',
-		get_template_directory_uri() . '/assets/js/hero-animations.js',
-		array(),
-		filemtime(get_template_directory() . '/assets/js/hero-animations.js'),
-		true
-	);
+	// If files exist in build directory, use those
+	if (file_exists($build_css_file)) {
+		wp_enqueue_style(
+			'express-analytics-hero',
+			get_theme_file_uri('/build/hero-section.css'),
+			[],
+			filemtime($build_css_file)
+		);
+	} else {
+		// Fallback to assets directory
+		$assets_css_file = get_theme_file_path('/assets/css/hero-section.css');
+		if (file_exists($assets_css_file)) {
+			wp_enqueue_style(
+				'express-analytics-hero',
+				get_theme_file_uri('/assets/css/hero-section.css'),
+				[],
+				filemtime($assets_css_file)
+			);
+		}
+	}
+
+	if (file_exists($build_js_file)) {
+		wp_enqueue_script(
+			'express-analytics-hero-animations',
+			get_theme_file_uri('/build/hero-section.js'),
+			['jquery'],
+			filemtime($build_js_file),
+			true
+		);
+	} else {
+		// Fallback to assets directory
+		$assets_js_file = get_theme_file_path('/assets/js/hero-animations.js');
+		if (file_exists($assets_js_file)) {
+			wp_enqueue_script(
+				'express-analytics-hero-animations',
+				get_theme_file_uri('/assets/js/hero-animations.js'),
+				['jquery'],
+				filemtime($assets_js_file),
+				true
+			);
+		}
+	}
 }
-add_action('wp_enqueue_scripts', 'express_analytics_enqueue_hero_assets');
+add_action('wp_enqueue_scripts', 'expressanalytics_hero_section_scripts');
 
 /**
  * Enqueue Montserrat font from Google Fonts
@@ -351,30 +381,6 @@ function display_svg_in_media_library()
     </style>';
 }
 add_action('admin_head', 'display_svg_in_media_library');
-
-/**
- * Enqueue theme scripts and styles
- */
-function ea_enqueue_assets()
-{
-	// Hero section assets
-	wp_enqueue_style(
-		'ea-hero-section',
-		get_template_directory_uri() . '/build/hero-section.css',
-		array(),
-		filemtime(get_template_directory() . '/build/hero-section.css')
-	);
-
-	wp_enqueue_script(
-		'ea-hero-section',
-		get_template_directory_uri() . '/build/hero-section.js',
-		array(),
-		filemtime(get_template_directory() . '/build/hero-section.js'),
-		true
-	);
-}
-add_action('wp_enqueue_scripts', 'ea_enqueue_assets');
-
 
 /**
  * Enqueue theme fonts
