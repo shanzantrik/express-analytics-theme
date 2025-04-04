@@ -41,7 +41,8 @@ function expressanalytics_register_blocks()
 	// Define blocks with their namespaces
 	$blocks = [
 		'express-analytics/hello-world',
-		'express-analytics/hero-section-solution'
+		'express-analytics/hero-section-solution',
+		'express-analytics/repeater-ea',
 	];
 
 	// Register each block
@@ -68,6 +69,20 @@ function expressanalytics_enqueue_block_assets()
 		[],
 		_S_VERSION
 	);
+
+	// Enqueue repeater-ea block styles
+	$style_path = "/build/repeater-ea/style-index.css";
+	$style_url = get_theme_file_uri($style_path);
+	$style_file = get_theme_file_path($style_path);
+
+	if (file_exists($style_file)) {
+		wp_enqueue_style(
+			"express-analytics-repeater-ea-style",
+			$style_url,
+			[],
+			filemtime($style_file)
+		);
+	}
 }
 add_action('enqueue_block_assets', 'expressanalytics_enqueue_block_assets');
 
@@ -83,6 +98,20 @@ function expressanalytics_enqueue_block_editor_assets()
 		[],
 		_S_VERSION
 	);
+
+	// Enqueue repeater-ea editor styles
+	$editor_style_path = "/build/repeater-ea/editor.css";
+	$editor_style_url = get_theme_file_uri($editor_style_path);
+	$editor_style_file = get_theme_file_path($editor_style_path);
+
+	if (file_exists($editor_style_file)) {
+		wp_enqueue_style(
+			"express-analytics-repeater-ea-editor",
+			$editor_style_url,
+			[],
+			filemtime($editor_style_file)
+		);
+	}
 
 	// Editor script
 	wp_enqueue_script(
@@ -115,6 +144,20 @@ function expressanalytics_enqueue_block_editor_assets()
 	if (file_exists($script_file)) {
 		wp_enqueue_script(
 			"express-analytics-hero-section-solution-block",
+			$script_url,
+			['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-block-editor'],
+			filemtime($script_file)
+		);
+	}
+
+	// Enqueue repeater-ea block's script
+	$script_path = "/build/repeater-ea/index.js";
+	$script_url = get_theme_file_uri($script_path);
+	$script_file = get_theme_file_path($script_path);
+
+	if (file_exists($script_file)) {
+		wp_enqueue_script(
+			"express-analytics-repeater-ea-block",
 			$script_url,
 			['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-block-editor'],
 			filemtime($script_file)

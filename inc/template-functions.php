@@ -215,27 +215,27 @@ add_action('tgmpa_register', 'expressanalytics_register_required_plugins');
  */
 function expressanalytics_register_post_types()
 {
-  // Case Studies
+  // Resources
   register_post_type(
-    'case-study',
+    'resource',
     array(
       'labels' => array(
-        'name'               => __('Case Studies', 'expressanalytics'),
-        'singular_name'      => __('Case Study', 'expressanalytics'),
+        'name'               => __('Resources', 'expressanalytics'),
+        'singular_name'      => __('Resource', 'expressanalytics'),
         'add_new'           => __('Add New', 'expressanalytics'),
-        'add_new_item'      => __('Add New Case Study', 'expressanalytics'),
-        'edit_item'         => __('Edit Case Study', 'expressanalytics'),
-        'new_item'          => __('New Case Study', 'expressanalytics'),
-        'view_item'         => __('View Case Study', 'expressanalytics'),
-        'search_items'      => __('Search Case Studies', 'expressanalytics'),
-        'not_found'         => __('No case studies found', 'expressanalytics'),
-        'not_found_in_trash' => __('No case studies found in trash', 'expressanalytics'),
+        'add_new_item'      => __('Add New Resource', 'expressanalytics'),
+        'edit_item'         => __('Edit Resource', 'expressanalytics'),
+        'new_item'          => __('New Resource', 'expressanalytics'),
+        'view_item'         => __('View Resource', 'expressanalytics'),
+        'search_items'      => __('Search Resources', 'expressanalytics'),
+        'not_found'         => __('No resources found', 'expressanalytics'),
+        'not_found_in_trash' => __('No resources found in trash', 'expressanalytics'),
       ),
       'public'      => true,
       'has_archive' => true,
       'menu_icon'   => 'dashicons-portfolio',
-      'supports'    => array('title', 'editor', 'thumbnail', 'excerpt'),
-      'rewrite'     => array('slug' => 'case-studies'),
+      'supports'    => array('title', 'thumbnail', 'excerpt'),
+      'rewrite'     => array('slug' => 'resources'),
       'show_in_rest' => true,
     )
   );
@@ -259,7 +259,7 @@ function expressanalytics_register_post_types()
       'public'      => true,
       'has_archive' => true,
       'menu_icon'   => 'dashicons-analytics',
-      'supports'    => array('title', 'editor', 'thumbnail', 'excerpt'),
+      'supports'    => array('title', 'thumbnail', 'excerpt'),
       'rewrite'     => array('slug' => 'services'),
       'show_in_rest' => true,
     )
@@ -284,7 +284,7 @@ function expressanalytics_register_post_types()
       'public'      => true,
       'has_archive' => true,
       'menu_icon'   => 'dashicons-chart-area',
-      'supports'    => array('title', 'editor', 'thumbnail', 'excerpt'),
+      'supports'    => array('title', 'thumbnail', 'excerpt'),
       'rewrite'     => array('slug' => 'solutions'),
       'show_in_rest' => true,
     )
@@ -297,27 +297,27 @@ add_action('init', 'expressanalytics_register_post_types');
  */
 function expressanalytics_register_taxonomies()
 {
-  // Industry taxonomy for Case Studies
+  // Category taxonomy for Resources
   register_taxonomy(
-    'industry',
-    array('case-study'),
+    'category',
+    array('resource'),
     array(
       'labels' => array(
-        'name'              => __('Industries', 'expressanalytics'),
-        'singular_name'     => __('Industry', 'expressanalytics'),
-        'search_items'      => __('Search Industries', 'expressanalytics'),
-        'all_items'         => __('All Industries', 'expressanalytics'),
-        'edit_item'         => __('Edit Industry', 'expressanalytics'),
-        'update_item'       => __('Update Industry', 'expressanalytics'),
-        'add_new_item'      => __('Add New Industry', 'expressanalytics'),
-        'new_item_name'     => __('New Industry Name', 'expressanalytics'),
-        'menu_name'         => __('Industries', 'expressanalytics'),
+        'name'              => __('Categories', 'expressanalytics'),
+        'singular_name'     => __('Category', 'expressanalytics'),
+        'search_items'      => __('Search Categories', 'expressanalytics'),
+        'all_items'         => __('All Categories', 'expressanalytics'),
+        'edit_item'         => __('Edit Category', 'expressanalytics'),
+        'update_item'       => __('Update Category', 'expressanalytics'),
+        'add_new_item'      => __('Add New Category', 'expressanalytics'),
+        'new_item_name'     => __('New Category Name', 'expressanalytics'),
+        'menu_name'         => __('Categories', 'expressanalytics'),
       ),
       'hierarchical'      => true,
       'show_ui'          => true,
       'show_admin_column' => true,
       'query_var'        => true,
-      'rewrite'          => array('slug' => 'industry'),
+      'rewrite'          => array('slug' => 'category'),
       'show_in_rest'     => true,
     )
   );
@@ -427,3 +427,81 @@ function expressanalytics_schema_org()
   echo '<script type="application/ld+json">' . wp_json_encode($schema) . '</script>';
 }
 add_action('wp_head', 'expressanalytics_schema_org');
+
+//Express Analytics Custom ACF Fields for Blocks.
+
+add_filter(
+  'meta_field_block_get_acf_field',
+  function ($block_content, $post_id, $field, $raw_value) {
+    $field_name = $field['name'] ?? '';
+
+    // Hero Button Field
+    if ('hero_button_field' === $field_name) {
+      $button_text = get_field('hero_button_text', $post_id);
+      $button_url = get_field('hero_url', $post_id);
+
+      // Validate both text and URL
+      if ($button_text && $button_url) {
+        $block_content = sprintf(
+          '<a href="%s" class="wp-block-button__link wp-element-button">%s</a>',
+          esc_url($button_url),
+          esc_html($button_text)
+        );
+      }
+    }
+
+    return $block_content;
+  },
+  10,
+  4
+);
+
+//Custom ACF Fields for Video Block
+add_filter(
+  'meta_field_block_get_acf_field',
+  function ($block_content, $post_id, $field, $raw_value) {
+    $field_name = $field['name'] ?? '';
+
+    if ('hero_sol_video' === $field_name) {
+      $video_url = get_field('hero_sol_video', $post_id);
+
+      if ($video_url && filter_var($video_url, FILTER_VALIDATE_URL)) {
+        $block_content = sprintf(
+          '<video src="%s" loop muted autoplay playsinline></video>',
+          esc_url($video_url)
+        );
+      }
+    }
+
+    return $block_content;
+  },
+  10,
+  4
+);
+
+//Custom ACF Fields for CTA Button Block
+add_filter(
+  'meta_field_block_get_acf_field',
+  function ($block_content, $post_id, $field, $raw_value) {
+    $field_name = $field['name'] ?? '';
+
+    // Hero Button Field
+    if ('cta_button' === $field_name) {
+      $button_text = get_field('cta_button_title', $post_id);
+      $button_url = get_field('cta_button_url', $post_id);
+
+      // Validate both text and URL
+      if ($button_text && $button_url) {
+        $block_content = sprintf(
+          '<a href="%s" class="wp-block-button__link wp-element-button">%s</a>',
+          esc_url($button_url),
+          esc_html($button_text)
+        );
+      }
+    }
+
+    return $block_content;
+  },
+  10,
+  4
+);

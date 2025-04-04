@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "express-analytics/repeater-ea",
+  "title": "Services & Solutions Repeater",
+  "category": "express-analytics",
+  "icon": "columns",
+  "description": "A block to list services/solutions in a two-column repeater layout.",
+  "keywords": [ "service", "solution", "repeater" ],
+  "supports": {
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "textdomain": "express-analytics",
+  "editorScript": "file:../../../../build/repeater-ea/index.js",
+  "editorStyle": "file:../../../../build/repeater-ea/editor.css",
+  "style": "file:../../../../build/repeater-ea/style-index.css"
+}

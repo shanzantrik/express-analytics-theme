@@ -8,7 +8,7 @@
 :root {
   --primary-color: #dc1b36;
   --secondary-color: #000000;
-  --dark-blue: #1a2b6a;
+  --dark-blue: #000010;
   --light-gray: #f8f8f8;
   --medium-gray: #e5e5e5;
   --dark-gray: #333333;
@@ -59,6 +59,7 @@
 .wp-block-button__link {
   font-weight: 600;
   transition: var(--transition);
+  color: white !important;
 }
 
 .wp-block-button.is-style-fill .wp-block-button__link:hover {
@@ -378,21 +379,21 @@
 }
 
 .mega-ea .gw-mm-item__dropdown {
-  box-shadow: 0 5px 5px 0 rgb(246 0 0 / 41%) !important;
+  box-shadow: 0 5px 5px 0 rgba(182, 182, 182, 0.41) !important;
+  border-radius: 10px !important;
 }
 
+
+
 /* Base header styles */
-.mainheader {
-  position: fixed;
+.sticky-header {
+  position: sticky;
   top: 0;
-  background-color: transparent;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  padding: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease, margin 0.3s ease;
-  margin: 0;
+  z-index: 9999;
+  background: white;
+  /* or your preferred header background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  /* Optional shadow on scroll */
   /* Added 1rem top margin */
 }
 
@@ -479,10 +480,6 @@
   text-align: left;
 }
 
-:root {
-  --tab-main: #bd06f3;
-  --tab-gray: #ccc;
-}
 
 .red-tab-layout {
   display: flex;
@@ -499,13 +496,12 @@
   background-color: #fff;
 }
 
-
 .tab-title {
   padding: 0;
   cursor: pointer;
   transition: 0.3s;
   font-size: 20px;
-  color: #333;
+  color: #000000;
   background: #fff;
   border-left: 3px solid transparent;
   border-right: 3px solid transparent;
@@ -515,16 +511,19 @@
   border-left: 3px solid #f30606;
   background-color: #f9f9f9;
   font-weight: bold;
+  color: #000000;
 }
 
 .red-tab-right .tab-title.active {
   border-right: 3px solid #f30606;
   background-color: #f9f9f9;
   font-weight: bold;
+  color: #000000;
 }
 
 .tab-title:hover {
   background-color: #f2f2f2;
+  color: #000000;
 }
 
 .tab-center {
@@ -626,4 +625,49 @@
   /* Reset any filters */
   width: 340px;
   /* Maintain the width */
+}
+
+.hero-sol-button {
+  background-color: #dc1b36;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero_sol-image {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 20px;
+}
+
+.hero_sol_image img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 20px;
+}
+
+.hero_sol_video video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.left-sol-image img {
+  width: 80%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.right-sol-image img {
+  width: 100% !important;
+  height: 600px !important;
+  object-fit: cover !important;
+  border-radius: 20px !important;
 }

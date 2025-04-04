@@ -109,9 +109,10 @@ function expressanalytics_scripts()
 	// Enqueue carousel script.
 	wp_enqueue_script('tiny-slider', 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.js', array(), '2.9.3', true);
 
-	// Enqueue custom scripts.
+	// Enqueue custom scripts from build directory
 	wp_enqueue_script('expressanalytics-carousel', get_theme_file_uri('/assets/js/carousel.js'), array('tiny-slider'), _S_VERSION, true);
-	wp_enqueue_script('expressanalytics-custom', get_theme_file_uri('/assets/js/custom.js'), array('jquery'), _S_VERSION, true);
+	wp_enqueue_script('expressanalytics-custom', get_theme_file_uri('/build/js/custom.js'), array('jquery'), _S_VERSION, true);
+	wp_enqueue_script('expressanalytics-hero-animations', get_theme_file_uri('/build/js/hero-animations.js'), array('jquery'), _S_VERSION, true);
 
 	// Localize script for AJAX functionality
 	wp_localize_script('expressanalytics-custom', 'expressAnalytics', array(

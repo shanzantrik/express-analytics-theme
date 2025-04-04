@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Parallax effect for floating shapes
   const shapes = document.querySelectorAll('.shape');
+  if (!shapes.length) return; // Exit if no shapes found
+
   let mouseX = 0;
   let mouseY = 0;
   let windowHalfX = window.innerWidth / 2;
@@ -15,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Animate shapes based on mouse position
   function animateShapes() {
     shapes.forEach((shape, index) => {
+      if (!shape) return; // Skip if shape is null
       const speed = 0.03 - (index * 0.005);
       const x = (mouseX * speed);
       const y = (mouseY * speed);
@@ -39,9 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const scrolled = window.pageYOffset;
     const heroSection = document.querySelector('.hero-section');
 
+    if (!heroSection) return; // Exit if hero section not found
+
     if (scrolled <= window.innerHeight) {
       heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
       shapes.forEach((shape, index) => {
+        if (!shape) return; // Skip if shape is null
         shape.style.transform = `translateY(${scrolled * (0.2 + index * 0.1)}px)`;
       });
     }
@@ -50,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Add intersection observer for animation triggers
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && entry.target) {
         entry.target.style.animationPlayState = 'running';
       }
     });
@@ -59,8 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Observe animated elements
-  document.querySelectorAll('.animate-text, .animate-text-delay, .animate-text-delay-2').forEach(el => {
-    observer.observe(el);
-    el.style.animationPlayState = 'paused';
-  });
+  const animatedElements = document.querySelectorAll('.animate-text, .animate-text-delay, .animate-text-delay-2');
+  if (animatedElements.length) {
+    animatedElements.forEach(el => {
+      if (el) {
+        observer.observe(el);
+        el.style.animationPlayState = 'paused';
+      }
+    });
+  }
 });
